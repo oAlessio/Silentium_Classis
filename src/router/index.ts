@@ -8,7 +8,7 @@ import TacticalComparator from '../views/TacticalComparator.vue'
 import SituationRoom from '../views/SituationRoom.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
