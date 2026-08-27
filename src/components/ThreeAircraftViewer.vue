@@ -137,11 +137,10 @@ onMounted(() => {
   const loader = new GLTFLoader()
   
   const getModelUrls = (type: string): string[] => {
-    if (type === 'f14') return ['/models/f-14_tomcat_-_fighter_jet_-_free.glb']
-    if (type === 'f35') return ['/models/f-35_lightning_ii_-_fighter_jet_-_free.glb']
-    if (type === 'fa18') return [
-      '/models/boeing_fa-18f_super_hornet_-_free.glb'
-    ]
+    const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'
+    if (type === 'f14') return [`${b}models/f-14_tomcat_-_fighter_jet_-_free.glb`]
+    if (type === 'f35') return [`${b}models/f-35_lightning_ii_-_fighter_jet_-_free.glb`]
+    if (type === 'fa18') return [`${b}models/boeing_fa-18f_super_hornet_-_free.glb`]
     return []
   }
 

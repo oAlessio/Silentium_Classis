@@ -488,16 +488,26 @@ const units = [
   }
 ]
 
+const resolveAsset = (path?: string) => {
+  if (!path) return ''
+  if (path.startsWith('http://') || path.startsWith('https://')) return path
+  const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  return b + cleanPath
+}
+
 // Computed units with correct language applied
 const computedUnits = computed(() =>
   units.map(u => ({
     ...u,
+    logo: resolveAsset(u.logo),
+    bg: resolveAsset(u.bg),
+    extraImage: u.extraImage ? resolveAsset(u.extraImage) : undefined,
     tag: lang.value === 'PT' ? u.tagPT : u.tagEN,
     shortDesc: lang.value === 'PT' ? u.shortDescPT : u.shortDescEN,
     overview: lang.value === 'PT' ? u.overviewPT : u.overviewEN,
     recentActivity: lang.value === 'PT' ? u.recentPT : u.recentEN,
     strengths: lang.value === 'PT' ? u.strengthsPT : u.strengthsEN,
-    extraImage: u.extraImage,
     operations: u.operations.map(op => ({
       ...op,
       desc: lang.value === 'PT' ? op.descPT : op.descEN

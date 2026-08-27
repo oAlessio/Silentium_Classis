@@ -830,9 +830,17 @@ const t = computed(() => {
   }
 })
 
+const getAssetUrl = (path: string) => {
+  if (!path) return ''
+  if (path.startsWith('http://') || path.startsWith('https://')) return path
+  const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  return b + cleanPath
+}
+
 // === CARRIER TIMELINE DATA ===
 const carriers = [
-  { id: 'CV-1', name: 'USS Langley', year: 1922, class: 'Langley-class', base: 'Norfolk, VA', image: '/cv1.png', status: 'DECOMMISSIONED',
+  { id: 'CV-1', name: 'USS Langley', year: 1922, class: 'Langley-class', base: 'Norfolk, VA', image: getAssetUrl('/cv1.png'), status: 'DECOMMISSIONED',
     desc: 'The pioneer of US naval aviation. The "Old Wagon" proved that fixed-wing aircraft could operate from a moving deck, forever changing maritime warfare. During WWII, she served as a vital seaplane tender before being lost in 1942.', 
     descPt: 'O pioneiro da aviação naval dos EUA. O "Old Wagon" provou que aeronaves podiam operar de um convés móvel, mudando para sempre a guerra. Na 2ª Guerra, serviu como tender de hidroaviões até ser perdido em 1942.' },
   
@@ -840,7 +848,7 @@ const carriers = [
     desc: 'Originally designed as a battlecruiser, the "Lady Lex" entered service in 1927. She played a critical role in the Battle of the Coral Sea (1942), the first carrier-vs-carrier battle in history, where she was lost after heroic combat.', 
     descPt: 'Originalmente um cruzador de batalha, o "Lady Lex" entrou em serviço em 1927. Teve papel crítico na Batalha do Mar de Coral (1942), a primeira batalha entre porta-aviões da história, onde foi perdida após combate heróico.' },
   
-  { id: 'CV-6', name: 'USS Enterprise', year: 1938, class: 'Yorktown-class', base: 'Pearl Harbor, HI', image: '/cv6.png', status: 'DECOMMISSIONED',
+  { id: 'CV-6', name: 'USS Enterprise', year: 1938, class: 'Yorktown-class', base: 'Pearl Harbor, HI', image: getAssetUrl('/cv6.png'), status: 'DECOMMISSIONED',
     desc: 'The legendary "Big E" became the most decorated ship of WWII. She survived nearly every major engagement in the Pacific, including Midway, Guadalcanal, and Leyte Gulf, becoming a legend of naval history.', 
     descPt: 'A lendária "Big E" tornou-se o navio mais condecorado da 2ª Guerra. Sobreviveu a quase todos os combates no Pacífico, incluindo Midway e Guadalcanal, tornando-se uma lenda da história naval.' },
   
@@ -856,7 +864,7 @@ const carriers = [
     desc: 'The world\'s first "Supercarrier", designed for heavy jet operations with an angled flight deck. She saw heavy action during the Vietnam War before being decommissioned in 1993.', 
     descPt: 'O primeiro "Super-porta-aviões" do mundo, projetado para jatos com convés angulado. Teve intensa participação na Guerra do Vietnã antes de ser desativado em 1993.' },
   
-  { id: 'CVN-65', name: 'USS Enterprise', year: 1961, class: 'Enterprise-class', base: 'Norfolk, VA', image: '/cvn65.png', status: 'DECOMMISSIONED',
+  { id: 'CVN-65', name: 'USS Enterprise', year: 1961, class: 'Enterprise-class', base: 'Norfolk, VA', image: getAssetUrl('/cvn65.png'), status: 'DECOMMISSIONED',
     desc: 'The dawn of nuclear power, able to steam at high speeds indefinitely. CVN-65 served in the Cuban Missile Crisis, the Vietnam War, and Operation Enduring Freedom during her 51-year career.', 
     descPt: 'O despertar do poder nuclear, capaz de navegar em alta velocidade indefinidamente. O CVN-65 serviu na Crise dos Mísseis de Cuba, Vietnã e na Operação Liberdade Duradoura.' },
   
