@@ -736,7 +736,7 @@ const checkAuth = () => {
   if (authKeyword.value.toLowerCase() === 'in umbra operamur') {
     showAuthModal.value = false
     authKeyword.value = ''
-    window.location.href = '/classified'
+    router.push('/classified')
   } else {
     authError.value = true
     setTimeout(() => {

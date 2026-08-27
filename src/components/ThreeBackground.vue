@@ -39,7 +39,7 @@ onMounted(() => {
   const particleCount = 2000
   const geometry = new THREE.BufferGeometry()
   const positions = new Float32Array(particleCount * 3)
-  const velocities = []
+  const velocities: { x: number; y: number; z: number }[] = []
 
   for (let i = 0; i < particleCount; i++) {
     positions[i * 3] = (Math.random() - 0.5) * 100
@@ -93,6 +93,7 @@ onMounted(() => {
 
     // Parallax effect on camera
     camera.position.x += (mouseX * 5 - camera.position.x) * 0.02
+    camera.position.y += (mouseY * 2 - camera.position.y) * 0.02
     camera.lookAt(0, 0, 0)
 
     // Animate particles

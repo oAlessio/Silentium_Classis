@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -246,12 +246,6 @@ onMounted(() => {
     window.removeEventListener('resize', handleResize)
     controls.dispose()
     renderer.dispose()
-    fuselageGeo.dispose()
-    noseGeo.dispose()
-    wingGeo.dispose()
-    tailGeo.dispose()
-    material.dispose()
-    solidMaterial.dispose()
   })
 })
 </script>

@@ -86,8 +86,8 @@ onMounted(() => {
 
   // Radar Grid Base
   const gridHelper = new THREE.PolarGridHelper(5, 4, 8, 64, 0x5eafc5, 0x5eafc5)
-  gridHelper.material.opacity = 0.2
-  gridHelper.material.transparent = true
+  ;(gridHelper.material as THREE.Material).opacity = 0.2
+  ;(gridHelper.material as THREE.Material).transparent = true
   scene.add(gridHelper)
 
   // Radar Sweep (Flat Slice)
