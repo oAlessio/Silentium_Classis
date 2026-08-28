@@ -745,11 +745,19 @@ const checkAuth = () => {
   }
 }
 
+const getAssetUrl = (path: string) => {
+  if (!path) return ''
+  if (path.startsWith('http://') || path.startsWith('https://')) return path
+  const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  return b + cleanPath
+}
+
 // === VIDEO MODAL STATE ===
 const activeVideo = ref<string | null>(null)
 
 const openVideo = (videoPath: string) => {
-  activeVideo.value = videoPath
+  activeVideo.value = getAssetUrl(videoPath)
 }
 
 const closeVideo = () => {
@@ -829,14 +837,6 @@ const t = computed(() => {
       }
   }
 })
-
-const getAssetUrl = (path: string) => {
-  if (!path) return ''
-  if (path.startsWith('http://') || path.startsWith('https://')) return path
-  const b = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path
-  return b + cleanPath
-}
 
 // === CARRIER TIMELINE DATA ===
 const carriers = [
