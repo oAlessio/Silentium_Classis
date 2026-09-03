@@ -3260,6 +3260,165 @@ export const TRANSLATED_TACTICAL_ASSETS: Record<Language, NavalAsset[]> = {
 export const TRANSLATED_MILITARY_OPERATIONS: Record<Language, MilitaryOperation[]> = {
   EN: [
     {
+      id: 'absolute-resolve',
+      codeName: 'OPERATION ABSOLUTE RESOLVE',
+      title: 'JSOC Direct Action & Capture of Nicolás Maduro in Caracas',
+      year: '2026',
+      location: 'Caracas, Venezuela (Fuerte Tiuna / Presidential Complex)',
+      theater: 'US Southern Command (SOUTHCOM) / JSOC',
+      defconRecommended: 1,
+      overview: 'High-risk covert heliborne raid executed by 1st SFOD-D (Delta Force), CIA Special Activities Center, and 160th SOAR (Night Stalkers) under Operation Southern Spear to capture indicted former president Nicolás Maduro and key leadership figures.',
+      target: 'Nicolás Maduro & Cilia Flores — Fortified Compound at Fuerte Tiuna, Caracas',
+      intelReport: {
+        classification: 'TOP SECRET // SPECIAL ACCESS REQUIRED // NOFORN',
+        summary: 'Multi-month KH-11 satellite surveillance, SIGINT eavesdropping, and covert HUMINT pinpointed Maduro\'s exact movement patterns, bunker infrastructure, and air defense gaps in the Caracas valley.',
+        keyFindings: [
+          'Fortified presidential bunker equipped with heavy electronic jamming and Cuban military security guards.',
+          'Electronic warfare assets disabled local air-defense radars (S-300VM / Buk-M2E) minutes prior to heliborne assault.',
+          'Stealth insertion flight paths mapped over the Caribbean Sea entering Venezuelan airspace beneath radar coverage.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Pre-Dawn Overcast with Low Cloud Base',
+        visibility: '6,000m (NVG Enhanced)',
+        windSpeed: '06 knots NE',
+        moonPhase: 'Waning Crescent (12% Illumination)',
+        temperature: '21°C'
+      },
+      opord: {
+        phase1: 'Low-altitude stealth approach across the Caribbean Sea by 160th SOAR MH-60M and MH-47G helicopters escorted by F-35C Lightning II jets and EA-18G Growler EW aircraft.',
+        phase2: 'Fast-rope insertion of Delta Force operators directly into target compound, explosive door breaching, and rapid CQB clearance.',
+        phase3: 'Securing target individuals (Maduro and spouse), tactical extraction via MH-47G to amphibious assault ship USS Wasp (LHD-1), and transfer to US Federal custody.',
+        outcome: 'Successful capture of primary targets with zero allied fatalities, high-value intelligence seizure, and extradition to US Federal District Court.'
+      },
+      unitsInvolved: [
+        '1st SFOD-D (Delta Force)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        'CIA Special Activities Center (SAC)',
+        'US Navy Carrier Strike Group 12 (USS Gerald R. Ford & Air Wing)',
+        'USMC 24th Marine Expeditionary Unit (MEU)'
+      ],
+      images: ['/maduro01.avif', '/maduro02.jpg']
+    },
+    {
+      id: 'kayla-mueller',
+      codeName: 'OPERATION KAYLA MUELLER',
+      title: 'JSOC Direct Action Raid & Neutralization of Abu Bakr al-Baghdadi',
+      year: '2019',
+      location: 'Barisha, Idlib Governorate, Syria',
+      theater: 'US Central Command (CENTCOM) / JSOC',
+      defconRecommended: 2,
+      overview: 'High-precision night heliborne raid conducted by 1st SFOD-D (Delta Force) and 160th SOAR in northwestern Syria to capture or neutralize Abu Bakr al-Baghdadi, founder and supreme leader of ISIS.',
+      target: 'Abu Bakr al-Baghdadi — Fortified Compound in Barisha, Idlib Governorate',
+      intelReport: {
+        classification: 'TOP SECRET // SI // NOFORN',
+        summary: 'HUMINT tracking by Kurdish SDF forces combined with continuous MQ-9 Reaper aerial surveillance pinpointed Baghdadi\'s isolated compound just 5km from the Turkish border.',
+        keyFindings: [
+          'Isolated compound protected by underground tunnel network and outer landmines.',
+          'Visual and signals intelligence confirmation of Baghdadi\'s presence with family members.',
+          'Deployment of Military Working Dog (MWD Conan) to corner target into dead-end tunnel.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Clear Moonless Sky',
+        visibility: '10,000m (NVG Filter)',
+        windSpeed: '05 knots West',
+        moonPhase: 'New Moon (1% Illumination)',
+        temperature: '16°C'
+      },
+      opord: {
+        phase1: 'Ultra-low-altitude night flight by 8x helicopters (MH-47G Chinook & MH-60M Black Hawk) through Russian and Syrian controlled airspace.',
+        phase2: 'Explosive breaching of compound outer walls to bypass booby-trapped gates, followed by immediate CQB engagement and non-combatant clearing.',
+        phase3: 'Cornering of Baghdadi in a dead-end tunnel, rapid field DNA verification confirming target match, and air strikes flattening the compound.',
+        outcome: 'Conclusive neutralization of ISIS founder, acquisition of high-value tactical intelligence, and zero allied fatalities.'
+      },
+      unitsInvolved: [
+        '1st SFOD-D (Delta Force)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        '75th Ranger Regiment (Assault Blockers)',
+        'Syrian Democratic Forces (SDF Intelligence)',
+        'CIA Special Activities Center'
+      ]
+    },
+    {
+      id: 'red-dawn',
+      codeName: 'OPERATION RED DAWN',
+      title: 'Capture of Former Dictator Saddam Hussein in Ad-Dawr',
+      year: '2003',
+      location: 'Ad-Dawr, near Tikrit, Iraq',
+      theater: 'US Central Command (CENTCOM) / Task Force 121',
+      defconRecommended: 2,
+      overview: 'Large-scale joint operation executed by Task Force 121 (Delta Force & ISA) and the 1st Brigade Combat Team of the 4th Infantry Division to capture former Iraqi dictator Saddam Hussein from an underground spider hole.',
+      target: 'Saddam Hussein — Underground "Spider Hole" Compound in Ad-Dawr',
+      intelReport: {
+        classification: 'SECRET // NOFORN',
+        summary: 'Tactical interrogations of former bodyguards and relatives from the al-Muslit family network pinpointed the exact remote farm along the Tigris River.',
+        keyFindings: [
+          'Identification of target search zones Wolverine 1 and Wolverine 2 near Ad-Dawr village.',
+          'Detection of a concealed hatch covered with bricks and dirt leading to a 6-foot underground hole.',
+          'Seizure of $750,000 in cash and two AK-47 rifles without a single shot being fired.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Cold Night with High Humidity',
+        visibility: '8,000m',
+        windSpeed: '08 knots NW',
+        moonPhase: 'Full Moon',
+        temperature: '08°C'
+      },
+      opord: {
+        phase1: 'Stealth perimeter containment of Wolverine 1 & 2 target sectors by 600 soldiers of the 4th Infantry Division and Delta Force operators.',
+        phase2: 'Detailed site search of farm structures, discovery of the concealed hatch, and removal of styrofoam insulation covering the entrance.',
+        phase3: 'Non-violent extraction of Saddam Hussein at 20:30 hrs, immediate heliborne transport to Baghdad Air Base, and secure detention.',
+        outcome: 'Successful capture of High Value Target #1 (Ace of Spades) with zero casualties.'
+      },
+      unitsInvolved: [
+        'Task Force 121 (JSOC / Delta Force / ISA)',
+        '1st Brigade Combat Team (4th Infantry Division)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        'US Army Intelligence and Security Command'
+      ]
+    },
+    {
+      id: 'celestial-balance',
+      codeName: 'OPERATION CELESTIAL BALANCE',
+      title: 'SEAL Team Six Heliborne Assault on Saleh Ali al-Nabhan',
+      year: '2009',
+      location: 'Barawe, Southern Somalia',
+      theater: 'US Africa Command (AFRICOM) / JSOC',
+      defconRecommended: 2,
+      overview: 'Daring daylight heliborne raid conducted by DEVGRU (SEAL Team Six) in southern Somalia to intercept and neutralize Saleh Ali Saleh Nabhan, top Al-Qaeda in East Africa commander.',
+      target: 'Saleh Ali Saleh Nabhan — Al-Qaeda / Al-Shabaab Vehicle Convoy near Barawe',
+      intelReport: {
+        classification: 'TOP SECRET // NOFORN',
+        summary: 'Real-time satellite surveillance and CIA electronic tracking identified Nabhan traveling in a 4x4 vehicle convoy between Mogadishu and Barawe.',
+        keyFindings: [
+          'Target implicated in 2002 Mombasa hotel bombing and East Africa US Embassy attacks.',
+          'Operational requirement for ground landing and body recovery for positive DNA identification.',
+          'Launched from US Navy vessels positioned off the Somali coastline.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Clear Sky with Sea Breeze',
+        visibility: '12,000m',
+        windSpeed: '14 knots East',
+        moonPhase: 'Daylight (Full Sun)',
+        temperature: '31°C'
+      },
+      opord: {
+        phase1: 'Launch of 4x helicopters (AH-6 Little Birds & MH-60 Black Hawks) from US Navy ships to intercept the convoy along the coastal road.',
+        phase2: 'Precision strafing by AH-6 Little Birds disabling Nabhan\'s vehicle, followed by immediate tactical landing by SEAL operators.',
+        phase3: 'On-scene clearance within 10 minutes, recovery of target body and materials for DNA proof, and rapid heliborne egress.',
+        outcome: 'Confirmed neutralization of senior Al-Qaeda leader, capture of critical intelligence assets, and zero US casualties.'
+      },
+      unitsInvolved: [
+        'DEVGRU Red Squadron (SEAL Team Six)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        'CIA Special Activities Division (SAD)',
+        'US Navy Amphibious Task Force (AFRICOM)'
+      ]
+    },
+    {
       id: 'neptune-spear',
       codeName: 'OPERATION NEPTUNE SPEAR',
       title: 'High-Precision Direct Action in Abbottabad',
@@ -3416,6 +3575,165 @@ export const TRANSLATED_MILITARY_OPERATIONS: Record<Language, MilitaryOperation[
     }
   ],
   PT: [
+    {
+      id: 'absolute-resolve',
+      codeName: 'OPERATION ABSOLUTE RESOLVE',
+      title: 'Captura e Ação Direta do JSOC contra Nicolás Maduro em Caracas',
+      year: '2026',
+      location: 'Caracas, Venezuela (Fuerte Tiuna / Complexo Presidencial)',
+      theater: 'US Southern Command (SOUTHCOM) / JSOC',
+      defconRecommended: 1,
+      overview: 'Incursão helitransportada noturna de altíssimo risco executada pelo 1st SFOD-D (Delta Force), CIA Special Activities Center e 160th SOAR (Night Stalkers) sob a Operação Southern Spear para capturar o ex-presidente indiciado Nicolás Maduro e lideranças chave.',
+      target: 'Nicolás Maduro & Cilia Flores — Complexo Fortificado em Fuerte Tiuna, Caracas',
+      intelReport: {
+        classification: 'TOP SECRET // SPECIAL ACCESS REQUIRED // NOFORN',
+        summary: 'Reconhecimento por satélite (KH-11), interceptação SIGINT e inteligência humana secreta (HUMINT) mapearam os padrões exatos de movimento, bunkers e brechas na defesa aérea do vale de Caracas.',
+        keyFindings: [
+          'Bunker presidencial fortificado com empacotamento eletrônico e destacamentos de segurança militar cubana.',
+          'Ativos de guerra eletrônica desativaram sistemas de radar de defesa aérea (S-300VM / Buk-M2E) minutos antes do assalto.',
+          'Corredores de infiltração stealth mapeados sobre o Mar do Caribe entrando no espaço aéreo venezuelano abaixo do horizonte de radar.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Madrugada Nublada com Nuvens Baixas',
+        visibility: '6.000m (Amplificado por NVG)',
+        windSpeed: '06 nós Nordeste',
+        moonPhase: 'Crescente Minguante (12% Iluminação)',
+        temperature: '21°C'
+      },
+      opord: {
+        phase1: 'Aproximação stealth a baixa altitude pelo Mar do Caribe com helicópteros MH-60M e MH-47G do 160th SOAR, escoltados por jatos F-35C Lightning II e aeronaves de guerra eletrônica EA-18G Growler.',
+        phase2: 'Inserção via fast-rope de operadores da Delta Force diretamente no complexo alvo, arrombamento explosivo de portas blindadas e rápida neutralização CQB de guardas hostis.',
+        phase3: 'Custódia dos alvos (Maduro e cônjuge), extração tática rápida via helicóptero MH-47G para o navio de assalto anfíbio USS Wasp (LHD-1) e transporte para custódia federal dos EUA.',
+        outcome: 'Captura bem-sucedida dos alvos primários sem baixas aliadas, apreensão de inteligência de alto valor e transferência para a Corte Federal dos EUA.'
+      },
+      unitsInvolved: [
+        '1st SFOD-D (Delta Force)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        'CIA Special Activities Center (SAC)',
+        'US Navy Carrier Strike Group 12 (USS Gerald R. Ford & Ala Aérea)',
+        'USMC 24th Marine Expeditionary Unit (MEU)'
+      ],
+      images: ['/maduro01.avif', '/maduro02.jpg']
+    },
+    {
+      id: 'kayla-mueller',
+      codeName: 'OPERATION KAYLA MUELLER',
+      title: 'Ação Direta do JSOC & Neutralização de Abu Bakr al-Baghdadi',
+      year: '2019',
+      location: 'Barisha, Idlib, Síria',
+      theater: 'US Central Command (CENTCOM) / JSOC',
+      defconRecommended: 2,
+      overview: 'Ataque noturno helitransportado de alta precisão conduzido pelo 1st SFOD-D (Delta Force) e 160th SOAR no noroeste da Síria para capturar ou neutralizar Abu Bakr al-Baghdadi, fundador e líder supremo do Estado Islâmico (ISIS).',
+      target: 'Abu Bakr al-Baghdadi — Complexo Fortificado em Barisha, Província de Idlib',
+      intelReport: {
+        classification: 'TOP SECRET // SI // NOFORN',
+        summary: 'Rastreamento HUMINT das forças curdas da SDF combinado com vigilância aérea contínua por drones MQ-9 Reaper localizou o esconderijo isolado a apenas 5km da fronteira turca.',
+        keyFindings: [
+          'Complexo isolado protegido com túneis subterrâneos e minas terrestres.',
+          'Confirmação visual e de sinais eletrônicos da presença de Baghdadi e família no local.',
+          'Uso do cão de guerra militar (MWD Conan) para encurralar o alvo nos túneis sem saída.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Céu Limpo Sem Lua',
+        visibility: '10.000m (Filtro NVG)',
+        windSpeed: '05 nós Oito',
+        moonPhase: 'Lua Nova (1% Iluminação)',
+        temperature: '16°C'
+      },
+      opord: {
+        phase1: 'Voo noturno a baixíssima altitude de 8x helicópteros (MH-47G Chinook e MH-60M Black Hawk) através de espaço aéreo controlado por forças russas e sírias.',
+        phase2: 'Derrubada explosiva dos muros do complexo para evitar entradas armadilhadas, seguida de engajamento imediato e evacuação de não-combatentes.',
+        phase3: 'Encurralamento de Baghdadi em um túnel sem saída, teste de DNA em campo confirmando identidade e destruição total do complexo por munição guiada de precisão.',
+        outcome: 'Neutralização conclusiva do líder supremo do ISIS, apreensão de documentos estratégicos e evacuação completa sem fatalidades aliadas.'
+      },
+      unitsInvolved: [
+        '1st SFOD-D (Delta Force)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        '75th Ranger Regiment (Assault Blockers)',
+        'Syrian Democratic Forces (SDF Intelligence)',
+        'CIA Special Activities Center'
+      ]
+    },
+    {
+      id: 'red-dawn',
+      codeName: 'OPERATION RED DAWN',
+      title: 'Captura do Ex-Ditador Saddam Hussein em Ad-Dawr',
+      year: '2003',
+      location: 'Ad-Dawr, perto de Tikrit, Iraque',
+      theater: 'US Central Command (CENTCOM) / Task Force 121',
+      defconRecommended: 2,
+      overview: 'Operação conjunta de grande escala executada pela Task Force 121 (Delta Force e ISA) e a 1ª Brigada da 4ª Divisão de Infantaria para capturar o ex-presidente iraquiano Saddam Hussein em um esconderijo subterrâneo.',
+      target: 'Saddam Hussein — Esconderijo Subterrâneo ("Spider Hole") em Ad-Dawr',
+      intelReport: {
+        classification: 'SECRET // NOFORN',
+        summary: 'Interrogatórios táticos de familiares e guarda-costas da tribo al-Muslit revelaram a localização exata de uma fazenda remota usada por Saddam ao longo do Rio Tigre.',
+        keyFindings: [
+          'Identificação das zonas alvos Wolverine 1 e Wolverine 2 próximas à vila de Ad-Dawr.',
+          'Detecção de um alçapão camuflado sob tijolos e sujeira conectado a um buraco subterrâneo de 2 metros.',
+          'Apreensão de $750.000 em notas de $100 dólares e duas pistolas AK-47 sem disparar um único tiro.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Noite Fria e Escura',
+        visibility: '8.000m',
+        windSpeed: '08 nós Noroeste',
+        moonPhase: 'Lua Cheia',
+        temperature: '08°C'
+      },
+      opord: {
+        phase1: 'Cercamento perimetral sigiloso das áreas Wolverine 1 e 2 por 600 soldados da 4ª Divisão de Infantaria e operadores da Delta Force.',
+        phase2: 'Varredura de estruturas da fazenda, descoberta do alçapão falso e remoção do isolamento de poliestireno escondendo o buraco.',
+        phase3: 'Extração sem resistência de Saddam Hussein às 20:30, transporte imediato via helicóptero para a Base Aérea de Bagdá e custódia segura.',
+        outcome: 'Captura bem-sucedida do Alvo de Alto Valor nº 1 da High Value Target List sem baixas aliadas ou civis.'
+      },
+      unitsInvolved: [
+        'Task Force 121 (JSOC / Delta Force / ISA)',
+        '1st Brigade Combat Team (4th Infantry Division)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        'US Army Intelligence and Security Command'
+      ]
+    },
+    {
+      id: 'celestial-balance',
+      codeName: 'OPERATION CELESTIAL BALANCE',
+      title: 'Ataque Helitransportado do SEAL Team 6 contra Saleh Ali al-Nabhan',
+      year: '2009',
+      location: 'Barawe, Somália',
+      theater: 'US Africa Command (AFRICOM) / JSOC',
+      defconRecommended: 2,
+      overview: 'Incursão diurna audaciosa de helicópteros pelo DEVGRU (SEAL Team Six) no sul da Somália para interceptar e neutralizar Saleh Ali Saleh Nabhan, um dos líderes mais procurados da Al-Qaeda na África Oriental.',
+      target: 'Saleh Ali Saleh Nabhan — Convoy de Veículos da Al-Qaeda / Al-Shabaab perto de Barawe',
+      intelReport: {
+        classification: 'TOP SECRET // NOFORN',
+        summary: 'Rastreamento por satélite e vigilância eletrônica continuados pela CIA identificaram o deslocamento de Nabhan em um veículo quatro por quatro entre Mogadíscio e Barawe.',
+        keyFindings: [
+          'Alvo diretamente envolvido no atentado ao Paradise Hotel em Mombaça (2002) e ataques à embaixada americana.',
+          'Necessidade de incursão com pouso e apreensão de corpos para verificação inequívoca de DNA.',
+          'Lançamento a partir de navios da Marinha dos EUA ao largo da costa somali.'
+        ]
+      },
+      weatherTelemetry: {
+        condition: 'Ensolarado com Vento de Mar',
+        visibility: '12.000m',
+        windSpeed: '14 nós Leste',
+        moonPhase: 'Dia (Sol Pleno)',
+        temperature: '31°C'
+      },
+      opord: {
+        phase1: 'Lançamento de 4x helicópteros (AH-6 Little Birds e MH-60 Black Hawks) a partir de um navio da Marinha dos EUA interceptando o veículo na estrada costeira.',
+        phase2: 'Metralhamento de precisão pelos AH-6 Little Birds para imobilizar o veículo de Nabhan seguido de pouso tático imediato dos SEALs.',
+        phase3: 'Varredura do local em menos de 10 minutos, recuperação do corpo do alvo e material de inteligência, e rápido regresso aos navios de assalto.',
+        outcome: 'Neutralização confirmada do líder sênior da Al-Qaeda, apreensão de celulares e cartões de memória estratégicos sem baixas americanas.'
+      },
+      unitsInvolved: [
+        'DEVGRU Red Squadron (SEAL Team Six)',
+        '160th Special Operations Aviation Regiment (Night Stalkers)',
+        'CIA Special Activities Division (SAD)',
+        'US Navy Amphibious Task Force (AFRICOM)'
+      ]
+    },
     {
       id: 'neptune-spear',
       codeName: 'OPERATION NEPTUNE SPEAR',

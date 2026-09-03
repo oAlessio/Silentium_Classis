@@ -251,26 +251,107 @@
             </div>
           </div>
 
+          <!-- Declassified Tactical Imagery -->
+          <div v-if="selectedOp.images && selectedOp.images.length" class="pt-4 border-t border-white/10 space-y-3">
+            <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
+              <span class="text-accent-cyan font-bold flex items-center gap-1.5">
+                <Camera class="w-4 h-4 text-accent-cyan" />
+                {{ t.tacticalImagery }}
+              </span>
+              <span class="text-red-400 bg-red-950/60 border border-red-500/30 px-2 py-0.5 rounded text-[9px] font-mono tracking-widest">
+                EVIDENCE DOSSIER // DECLASSIFIED
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div 
+                v-for="(imgSrc, idx) in selectedOp.images" 
+                :key="idx"
+                @click="selectedModalImg = imgSrc; playBeep()"
+                class="group relative rounded-xl border border-white/15 overflow-hidden bg-black/60 cursor-pointer transition-all hover:border-accent-cyan hover:shadow-[0_0_20px_rgba(94,175,197,0.3)]"
+              >
+                <!-- HUD Scanlines effect -->
+                <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.4)_51%)] bg-[length:100%_4px] pointer-events-none z-10 opacity-30"></div>
+                
+                <img 
+                  :src="getAssetUrl(imgSrc)" 
+                  :alt="`Tactical intel photo ${idx + 1}`" 
+                  class="w-full h-52 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 z-20 flex items-center justify-between font-mono text-[10px]">
+                  <span class="text-white font-bold tracking-wider">FIG 0{{ idx + 1 }} // CAPTURE RECON</span>
+                  <span class="text-accent-cyan flex items-center gap-1 group-hover:underline">
+                    <Maximize2 class="w-3.5 h-3.5" />
+                    INSPECT
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
 
     </main>
+
+    <!-- FULLSCREEN IMAGE INSPECT MODAL -->
+    <div 
+      v-if="selectedModalImg" 
+      class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+      @click.self="selectedModalImg = null"
+    >
+      <div class="relative max-w-4xl w-full bg-navy-950 border border-white/20 rounded-2xl overflow-hidden shadow-2xl space-y-3 p-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3 font-mono text-xs">
+          <div class="flex items-center gap-2 text-accent-cyan font-bold">
+            <Camera class="w-4 h-4" />
+            <span>TACTICAL RECON IMAGE INSPECTOR</span>
+          </div>
+          <button 
+            @click="selectedModalImg = null"
+            class="p-1 rounded bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white transition-colors"
+          >
+            <X class="w-5 h-5" />
+          </button>
+        </div>
+
+        <div class="relative overflow-hidden rounded-xl bg-black border border-white/10">
+          <img 
+            :src="getAssetUrl(selectedModalImg)" 
+            alt="Tactical inspect full image" 
+            class="w-full max-h-[75vh] object-contain mx-auto"
+          />
+        </div>
+
+        <div class="font-mono text-[10px] text-gray-400 flex items-center justify-between">
+          <span>CLASSIFIED RECONNAISSANCE DOSSIER</span>
+          <span class="text-accent-gold uppercase font-bold">CARACAS // OPERATION ABSOLUTE RESOLVE</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
-import { ArrowLeft, ShieldAlert, Radio } from 'lucide-vue-next'
+import { ArrowLeft, ShieldAlert, Radio, Camera, Maximize2, X } from 'lucide-vue-next'
 import { TRANSLATED_MILITARY_OPERATIONS, type Language } from '../data/tacticalTranslations'
 import { playBeep } from '../ambientAudio'
 
 const router = useRouter()
 const lang = ref<Language>('EN')
 
-const currentOperations = computed(() => TRANSLATED_MILITARY_OPERATIONS[lang.value])
-const selectedOpId = ref<string>('neptune-spear')
+const currentOperations = computed(() => {
+  return [...TRANSLATED_MILITARY_OPERATIONS[lang.value]].sort((a, b) => parseInt(b.year) - parseInt(a.year))
+})
+const selectedOpId = ref<string>('absolute-resolve')
+const selectedModalImg = ref<string | null>(null)
+
+const getAssetUrl = (path: string) => {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+}
 
 const selectedOp = computed(() => {
   return currentOperations.value.find(op => op.id === selectedOpId.value) || currentOperations.value[0]
@@ -420,7 +501,8 @@ const translations = {
     phase2: 'PHASE 02 - DIRECT ACTION & ENGAGEMENT',
     phase3: 'PHASE 03 - EXTRACTION & WITHDRAWAL',
     outcome: 'OPERATIONAL RESULT & IMPACT',
-    unitsInvolved: 'UNITS & FORCES INVOLVED'
+    unitsInvolved: 'UNITS & FORCES INVOLVED',
+    tacticalImagery: 'TACTICAL RECON & CAPTURE IMAGERY'
   },
   PT: {
     back: 'PAINEL CLASSIFICADO',
@@ -444,7 +526,8 @@ const translations = {
     phase2: 'FASE 02 - AÇÃO DIRETA & ENGAJAMENTO',
     phase3: 'FASE 03 - EXTRAÇÃO & RETROCEDIMENTO',
     outcome: 'RESULTADO E IMPACTO OPERACIONAL',
-    unitsInvolved: 'UNIDADES E FORÇAS ENVOLVIDAS'
+    unitsInvolved: 'UNIDADES E FORÇAS ENVOLVIDAS',
+    tacticalImagery: 'REGISTROS TÁTICOS DE RECONHECIMENTO & CAPTURA'
   }
 }
 
