@@ -4,7 +4,7 @@
     <div class="fixed inset-0 bg-[radial-gradient(#162a42_1px,transparent_1px)] [background-size:24px_24px] opacity-30 pointer-events-none"></div>
 
     <!-- Header Nav -->
-    <header class="relative z-30 border-b border-white/10 bg-navy-950/90 backdrop-blur-md sticky top-0 px-6 py-4 flex items-center justify-between">
+    <header class="relative z-30 border-b border-white/10 bg-navy-950/90 backdrop-blur-md sticky top-0 px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
       <div class="flex items-center gap-4">
         <button 
           @click="router.push('/classified')" 
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
         <!-- Optics Mode Switcher -->
         <div class="flex items-center gap-2 bg-black/60 p-1 rounded-lg border border-white/10 font-mono text-xs">
           <button 

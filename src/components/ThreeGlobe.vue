@@ -86,6 +86,7 @@ let globeGroup: THREE.Group
 let animationFrameId: number
 let raycaster: THREE.Raycaster
 let mouse: THREE.Vector2
+let resizeObserver: ResizeObserver | null = null
 
 // Zoom Configuration
 const minCameraZ = 6.0
@@ -188,6 +189,11 @@ function initThree() {
   dom.addEventListener('mouseup', onMouseUp)
   dom.addEventListener('click', onClick)
   dom.addEventListener('wheel', onWheel, { passive: false })
+  
+  resizeObserver = new ResizeObserver(() => {
+    onWindowResize()
+  })
+  resizeObserver.observe(dom)
   window.addEventListener('resize', onWindowResize)
 
   if (props.selectedAssetId) {
@@ -439,6 +445,7 @@ function onWindowResize() {
   if (!container.value) return
   const width = container.value.clientWidth
   const height = container.value.clientHeight
+  if (width === 0 || height === 0) return
 
   camera.aspect = width / height
   camera.updateProjectionMatrix()
@@ -512,6 +519,7 @@ onBeforeUnmount(() => {
     dom.removeEventListener('click', onClick)
     dom.removeEventListener('wheel', onWheel)
   }
+  if (resizeObserver) resizeObserver.disconnect()
   window.removeEventListener('resize', onWindowResize)
   renderer?.dispose()
 })

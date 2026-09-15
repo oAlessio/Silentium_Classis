@@ -26,18 +26,31 @@
           <span class="font-mono text-[9px] tracking-[0.2em] text-white/30">CVN-78</span>
         </div>
 
-        <!-- Mobile Menu -->
-        <button class="md:hidden text-white/60">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+        <!-- Mobile Menu Toggle -->
+        <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="md:hidden text-white/60 relative z-[70]">
+          <svg v-if="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="17" y2="17"/></svg>
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </div>
     </nav>
+
+    <!-- Mobile Menu Tray -->
+    <div
+      class="fixed inset-0 z-[65] bg-navy-950/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 md:hidden transition-all duration-500"
+      :class="isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'"
+    >
+      <a href="#about" @click="isMobileMenuOpen = false" class="text-xl tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors duration-300">{{ t.nav.about }}</a>
+      <a href="#fleet" @click="isMobileMenuOpen = false" class="text-xl tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors duration-300">{{ t.nav.fleet }}</a>
+      <a href="#operations" @click="isMobileMenuOpen = false" class="text-xl tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors duration-300">{{ t.nav.ops }}</a>
+      <div class="w-12 h-px bg-white/20 mt-4"></div>
+      <span class="font-mono text-xs tracking-[0.2em] text-white/30 mt-4">CVN-78</span>
+    </div>
 
     <!-- ============================================
          FIXED SOUND CONTROL & TRANSLATION HUD
          ============================================ -->
     <div 
-      class="fixed top-0 right-0 z-[60] flex items-center bg-transparent transition-all duration-300"
+      class="fixed top-[72px] md:top-0 right-0 z-[60] flex items-center bg-transparent transition-all duration-300"
     >
       <!-- Translation Toggle -->
       <button
@@ -416,7 +429,7 @@
           
           <!-- Main Slider -->
           <div 
-            class="relative h-[500px] md:h-[650px] lg:h-[750px] overflow-hidden rounded-sm border border-white/5 bg-navy-900 shadow-2xl"
+            class="relative h-[650px] sm:h-[500px] md:h-[650px] lg:h-[750px] overflow-hidden rounded-sm border border-white/5 bg-navy-900 shadow-2xl"
             @mouseenter="stopCarousel"
             @mouseleave="startCarousel"
           >
@@ -439,24 +452,24 @@
               </div>
 
               <!-- Slide Content -->
-              <div class="absolute inset-0 flex items-center px-8 md:px-16 lg:px-24">
+              <div class="absolute inset-0 flex items-center px-6 sm:px-8 md:px-16 lg:px-24">
 
-                  <div :id="'slide-content-' + index" class="max-w-3xl slide-content-wrapper relative z-10">
-                    <div class="font-mono text-[10px] tracking-[0.5em] text-accent-cyan/60 mb-4 uppercase reveal-text opacity-0">
+                  <div :id="'slide-content-' + index" class="max-w-3xl slide-content-wrapper relative z-10 w-full">
+                    <div class="font-mono text-[10px] tracking-[0.5em] text-accent-cyan/60 mb-3 sm:mb-4 uppercase reveal-text opacity-0">
                       {{ carrier.year }} // REG_ID: {{ carrier.id }}
                     </div>
-                    <h3 class="text-4xl md:text-6xl lg:text-7xl font-display text-white uppercase tracking-wider mb-6 reveal-text leading-none opacity-0 flex flex-wrap items-baseline gap-x-6">
+                    <h3 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display text-white uppercase tracking-wider mb-4 md:mb-6 reveal-text leading-none opacity-0 flex flex-wrap items-baseline gap-x-4 sm:gap-x-6">
                       {{ carrier.name }}
-                      <span class="text-3xl md:text-5xl lg:text-6xl hull-badge-glow inline-block font-archivo whitespace-nowrap" :id="'hull-num-' + index">
+                      <span class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl hull-badge-glow inline-block font-archivo whitespace-nowrap" :id="'hull-num-' + index">
                         <span class="hull-tag-prefix">CVN - </span>
                         <span class="hull-tag-number">{{ carrier.id.split('-')[1] }}</span>
                       </span>
                     </h3>
-                    <p class="text-[15px] md:text-base lg:text-lg text-white/85 leading-snug md:leading-relaxed max-w-2xl lg:max-w-3xl mb-8 md:mb-10 italic reveal-text opacity-0">
+                    <p class="text-[13px] sm:text-[15px] md:text-base lg:text-lg text-white/85 leading-relaxed md:leading-relaxed max-w-2xl lg:max-w-3xl mb-6 md:mb-10 italic reveal-text opacity-0 max-h-[120px] overflow-y-auto pr-2 no-scrollbar">
                       "{{ lang === 'EN' ? carrier.desc : carrier.descPt }}"
                     </p>
                     
-                    <div class="flex flex-wrap gap-y-4 gap-x-10 p-5 bg-black/30 backdrop-blur-md border-l-2 border-accent-cyan/50 reveal-text opacity-0">
+                    <div class="flex flex-wrap gap-y-3 gap-x-6 sm:gap-y-4 sm:gap-x-10 p-4 sm:p-5 bg-black/30 backdrop-blur-md border-l-2 border-accent-cyan/50 reveal-text opacity-0">
                       <div class="flex flex-col gap-1">
                         <span class="font-mono text-[10px] tracking-[0.2em] text-accent-gold/80 uppercase">Class</span>
                         <span class="font-mono text-[12px] tracking-widest text-white/90">{{ carrier.class }}</span>
@@ -663,6 +676,8 @@
           :src="activeVideo"
           autoplay
           controls
+          playsinline
+          webkit-playsinline
           class="w-full h-full shadow-2xl rounded-sm object-contain"
         ></video>
       </div>
@@ -731,6 +746,7 @@ const router = useRouter()
 const showAuthModal = ref(false)
 const authKeyword = ref('')
 const authError = ref(false)
+const isMobileMenuOpen = ref(false)
 
 const checkAuth = () => {
   if (authKeyword.value.toLowerCase() === 'in umbra operamur') {

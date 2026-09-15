@@ -174,13 +174,24 @@ onMounted(() => {
 
   animate()
 
+  let resizeObserver: ResizeObserver | null = null
+
   // Handle Resize
   const handleResize = () => {
     if (!containerRef.value || !camera || !renderer) return
     const size = containerRef.value.clientWidth
+    if (size === 0) return
     camera.aspect = 1
     camera.updateProjectionMatrix()
     renderer.setSize(size, size)
+  }
+
+  resizeObserver = new ResizeObserver(() => {
+    handleResize()
+  })
+
+  if (containerRef.value) {
+    resizeObserver.observe(containerRef.value)
   }
 
   window.addEventListener('resize', handleResize)
@@ -188,6 +199,7 @@ onMounted(() => {
   // Cleanup
   onBeforeUnmount(() => {
     cancelAnimationFrame(reqId)
+    if (resizeObserver) resizeObserver.disconnect()
     window.removeEventListener('resize', handleResize)
     renderer.dispose()
     gridHelper.dispose()

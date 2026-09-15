@@ -7,7 +7,7 @@
     <!-- ===================== NAV ===================== -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-navy-950/80 backdrop-blur-md border-b border-white/5 px-6 md:px-12 py-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <div class="font-mono text-[9px] tracking-[0.4em] text-accent-gold/60 uppercase">In Umbra Operamur // Ground Ops</div>
+        <div class="font-mono text-[9px] tracking-[0.4em] text-accent-gold/60 uppercase"><span class="hidden sm:inline">In Umbra Operamur // </span>Ground Ops</div>
       </div>
       <div class="flex items-center gap-4">
         <!-- Language Toggle -->
@@ -16,7 +16,7 @@
           class="h-10 px-4 flex items-center justify-center hover:bg-white/10 transition-colors font-mono text-[10px] tracking-wider text-white/50 hover:text-white border-r border-white/10"
           title="Change Language"
         >
-          <span class="opacity-40 pr-1">{{ lang === 'EN' ? 'EN' : 'PT' }}</span>
+          <span class="opacity-40 pr-0.5 sm:pr-1">{{ lang === 'EN' ? 'EN' : 'PT' }}</span>
           <span class="opacity-100">/ {{ lang === 'EN' ? 'PT' : 'EN' }}</span>
         </button>
 
@@ -102,20 +102,20 @@
               <h3 class="text-3xl md:text-4xl font-display text-white uppercase tracking-wide mb-4">{{ unit.name }}</h3>
               <p class="text-sm text-white/50 leading-relaxed mb-6 max-w-md">{{ unit.shortDesc }}</p>
 
-              <div class="flex items-center gap-6 mb-8 font-mono text-[10px] text-white/30 tracking-wider">
+              <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-8 font-mono text-[10px] text-white/30 tracking-wider">
                 <span>EST. {{ unit.established }}</span>
-                <span class="w-px h-3 bg-white/15"></span>
+                <span class="w-px h-3 bg-white/15 hidden sm:block"></span>
                 <span>{{ unit.personnel }}</span>
-                <span class="w-px h-3 bg-white/15"></span>
+                <span class="w-px h-3 bg-white/15 hidden sm:block"></span>
                 <span>{{ unit.command }}</span>
               </div>
 
               <button
                 @click="openModal(unit)"
-                class="self-start group/btn flex items-center gap-3 px-6 py-3 border border-white/15 hover:border-accent-gold/50 hover:bg-white/5 transition-all duration-500 text-white/70 hover:text-accent-gold"
+                class="self-start group/btn flex items-center gap-3 px-6 py-4 sm:px-6 sm:py-3 border border-white/15 hover:border-accent-gold/50 hover:bg-white/5 transition-all duration-500 text-white/70 hover:text-accent-gold"
               >
-                <span class="text-[10px] tracking-[0.2em] uppercase">{{ t.btn.details }}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="transform group-hover/btn:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <span class="text-[11px] sm:text-[10px] tracking-[0.2em] uppercase font-bold sm:font-normal">{{ t.btn.details }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="transform group-hover/btn:translate-x-1 transition-transform sm:w-[14px] sm:h-[14px]"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </button>
             </div>
           </div>
