@@ -161,14 +161,14 @@
             </div>
           </div>
 
-          <button @click="router.push('/classified/comparator')" class="relative z-10 w-full bg-navy-950/80 border border-white/10 group-hover:border-accent-gold/50 p-6 transition-all duration-500 overflow-hidden text-left flex flex-col h-full backdrop-blur-md">
-            <div class="absolute inset-0 bg-gradient-to-br from-accent-gold/0 via-transparent to-accent-gold/5 group-hover:from-accent-gold/10 transition-colors z-0"></div>
+          <button @click="router.push('/classified/doomsday')" class="relative z-10 w-full bg-navy-950/80 border border-white/10 group-hover:border-red-600/50 p-6 transition-all duration-500 overflow-hidden text-left flex flex-col h-full backdrop-blur-md">
+            <div class="absolute inset-0 bg-gradient-to-br from-red-600/0 via-transparent to-red-600/5 group-hover:from-red-600/20 transition-colors z-0"></div>
             
             <div class="relative z-10 flex flex-col h-full">
-              <div class="font-mono text-[10px] tracking-[0.2em] text-white/40 mb-3">DEPT 04</div>
-              <h2 class="text-xl font-display text-white tracking-wider mb-2 group-hover:text-accent-gold transition-colors">TACTICAL COMPARATOR</h2>
+              <div class="font-mono text-[10px] tracking-[0.2em] text-red-500/60 mb-3 animate-pulse">CLASSIFIED: DEFCON 1</div>
+              <h2 class="text-xl font-display text-white tracking-wider mb-2 group-hover:text-red-500 transition-colors">DOOMSDAY PROTOCOL</h2>
               <p class="text-xs text-white/50 tracking-wider mb-6 leading-relaxed">
-                Head-to-head Spider Chart & missile range estimator (Tomahawk, Trident II, Harpoon, MK 48).
+                Strategic command terminal. Initiate nuclear strikes, ground incursions, and naval bombardments.
               </p>
               
               <div class="mt-auto flex items-center justify-between font-mono text-[10px] text-accent-gold uppercase tracking-widest font-bold">

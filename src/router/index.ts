@@ -4,7 +4,7 @@ import ClassifiedDashboard from '../views/ClassifiedDashboard.vue'
 import Submarines from '../views/Submarines.vue'
 import GroundOps from '../views/GroundOps.vue'
 import SatRecon from '../views/SatRecon.vue'
-import TacticalComparator from '../views/TacticalComparator.vue'
+import DoomsdayMachine from '../views/DoomsdayMachine.vue'
 import SituationRoom from '../views/SituationRoom.vue'
 
 const router = createRouter({
@@ -36,9 +36,9 @@ const router = createRouter({
       component: SatRecon
     },
     {
-      path: '/classified/comparator',
-      name: 'comparator',
-      component: TacticalComparator
+      path: '/classified/doomsday',
+      name: 'doomsday',
+      component: DoomsdayMachine
     },
     {
       path: '/classified/briefing',
