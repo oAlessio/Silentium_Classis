@@ -410,8 +410,12 @@ function animateAirstrike() {
       if (phase === 'attacking') {
         launchStatus.value = 'WEAPONS AWAY. STAND BY FOR BDA.'
         
-        // Pick a random attack video
-        const videos = ['/Projeto de Vídeo 1.mp4', '/Projeto de Vídeo 2.mp4']
+        // Pick a random attack video (use BASE_URL for GitHub Pages compatibility)
+        const base = import.meta.env.BASE_URL
+        const videos = [
+          `${base}Projeto de V\u00eddeo 1.mp4`,
+          `${base}Projeto de V\u00eddeo 2.mp4`
+        ]
         const videoSrc = videos[Math.floor(Math.random() * videos.length)]
         
         // Create fullscreen video overlay
